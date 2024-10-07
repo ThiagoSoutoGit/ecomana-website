@@ -1,3 +1,5 @@
+# Ecomana website
+
 # Accessible Astro Starter
 
 ![social-preview-image](https://user-images.githubusercontent.com/3909046/219942674-9894853e-def8-4180-84b8-6b577dacfcaa.png)
