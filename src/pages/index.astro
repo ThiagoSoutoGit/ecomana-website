@@ -10,63 +10,62 @@ import ContentMedia from '../components/ContentMedia.astro'
   <Hero />
   <section class="my-64">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Features</h2>
+      <h2 class="mb-16 text-6xl">Why EcoMana?</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:tailwind" title="Tailwind CSS">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
+        <Feature icon="mdi:account-check-outline" title="Trusted Professionals">
+          Our team consists of certified painters committed to delivering exceptional results you can trust.
         </Feature>
-        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
-          17 components and counting, all tried and tested for the most optimal accessible experience for your visitors.
+        <Feature icon="mdi:earth" title="Embracing Māori Values">
+          We integrate Māori principles of <em>Kaitiakitanga</em> (guardianship) and <em>Manaakitanga</em> (hospitality) in all our projects.
         </Feature>
-        <Feature icon="mdi:looks" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
+        <Feature icon="mdi:map-marker-radius" title="Local to Tauranga">
+          Proudly serving the Tauranga community with local expertise and a personal touch.
         </Feature>
-        <Feature icon="mdi:eslint" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
+        <Feature icon="mdi:handshake-outline" title="Reliable Service">
+          Count on us for punctuality and professionalism from start to finish.
         </Feature>
-        <Feature icon="mdi:book-open-page-variant" title="Blog">
-          This theme comes with a fully integrated blog, dynamic pages and SEO optimization.
+        <Feature icon="mdi:leaf" title="Eco-Friendly Practices">
+          We use environmentally friendly paints and sustainable methods to protect our beautiful New Zealand.
         </Feature>
-        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
+        <Feature icon="mdi:palette-swatch" title="Quality Workmanship">
+          Delivering high-quality finishes that enhance and preserve your property's value.
         </Feature>
-        <Feature icon="mdi:theme-light-dark" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
+        <Feature icon="mdi:account-group-outline" title="Personalized Solutions">
+          Tailoring our services to meet your unique needs and preferences.
         </Feature>
-        <Feature icon="mdi:cog" title="Design System">
-          The theme offers some very handy utilities to help you build your website faster.
+        <Feature icon="mdi:star-face" title="Customer Satisfaction">
+          Your happiness is our priority—we strive for excellence in every project.
         </Feature>
-        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
-          Excellent lighthouse scores means your website will load faster and get better SEO rankings.
+        <Feature icon="mdi:shield-check-outline" title="Licensed & Insured">
+          Fully licensed and insured for your peace of mind and protection.
         </Feature>
       </div>
+
     </div>
   </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible Components</h2>
+  <ContentMedia imgSrc="/eco.png">
+    <h2>Our ways</h2>
     <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
-        >separate package</a
-      >. They'll get you up and running in building an accessible solution for your visitors.
+      At EcoMana, sustainability is more than a buzzword—it's the essence of our operations. 
+      We are dedicated to minimizing our environmental impact by using eco-friendly paints and sustainable materials. 
+      Our practices include responsible waste management, energy-efficient processes, and sourcing products from environmentally conscious suppliers. 
+      We believe in creating beautiful spaces while preserving the natural beauty of New Zealand for future generations.
     </p>
   </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
+  <ContentMedia imgSrc="/maori-removebg-preview.png" reverseImg={true}>
+    <h2>Our Values</h2>
     <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
+        EcoMana proudly integrates Māori principles such as <em>Kaitiakitanga</em> (guardianship) and <em>Manaakitanga</em> (hospitality) into every project. <em>Kaitiakitanga</em> inspires us to protect and enhance the environment through our eco-friendly painting services. <em>Manaakitanga</em> drives us to foster genuine relationships with our clients, providing exceptional service with respect and warmth. By honoring these values, we deliver not just quality workmanship but also a deep commitment to community and culture.
     </p>
   </ContentMedia>
   <section class="mb-32 mt-64">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Counters</h2>
+      <h2 class="mb-16 text-6xl">You Can Count On Us</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="520" title="Stars" sub="On GitHub" />
-        <Counter count="17" title="Accessible" sub="Components" />
-        <Counter count="500" title="Commits" sub="Merged" />
-        <Counter count="18+" title="Months" sub="Since launch" />
+        <Counter icon="mdi:tag-percent" count="15%" title="Discount" sub="Early Sign-Ups" />
+        <Counter icon="mdi:leaf" count="100%" title="Eco-Friendly" sub="Materials" />
+        <Counter icon="mdi:account-group" count="25" title="Years" sub="Combined Experience" />
+        <Counter icon="mdi:calendar" count="2" title="Months" sub="Until Launch" />
       </div>
     </div>
   </section>

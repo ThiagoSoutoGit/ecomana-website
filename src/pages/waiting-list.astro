@@ -1,0 +1,331 @@
+---
+import Layout from '../layouts/DefaultLayout.astro';
+
+// Define the endpoint in the server-side script.
+const serviceOptions = [
+  { value: 'Interior Painting', label: 'Interior Painting' },
+  { value: 'Exterior Painting', label: 'Exterior Painting' },
+  { value: 'Both', label: 'Both' },
+  { value: 'Other', label: 'Other' },
+];
+const getformEndpoint = import.meta.env.PUBLIC_GETFORM_ENDPOINT;
+---
+
+<Layout>
+  <section class="py-16">
+    <div class="container mx-auto px-6 md:px-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Join Our Waiting List</h1>
+      <p class="mb-8 text-lg md:text-xl">
+        Fill out the form below for a chance to win a 15% discount on our eco-friendly painting services.
+      </p>
+
+      <div id="confirmationMessage" class="text-center mt-8 hidden">
+        <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
+        <p>Your submission has been received. We'll be in touch soon.</p>
+      </div>
+
+      <form id="waitingListForm" class="space-y-6" data-endpoint={getformEndpoint}>
+        <!-- Full Name -->
+        <div>
+          <label for="full-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Full Name *
+          </label>
+          <input
+            type="text"
+            id="full-name"
+            name="fullName"
+            required
+            autocomplete="name"
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          />
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Email Address *
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          />
+        </div>
+
+        <!-- Phone Number (Optional) -->
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Phone Number (Optional)
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          />
+        </div>
+
+        <!-- Suburb or Area -->
+        <div>
+          <label for="area" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Suburb or Area *
+          </label>
+          <input
+            type="text"
+            id="area"
+            name="area"
+            required
+            autocomplete="address-level2"
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          />
+        </div>
+
+        <!-- Type of Property -->
+        <div>
+          <label for="property-type" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Type of Property *
+          </label>
+          <select
+            id="property-type"
+            name="propertyType"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          >
+            <option disabled selected value="">Select one</option>
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Services Interested In -->
+        <fieldset>
+          <legend class="text-sm font-medium text-gray-700 dark:text-gray-300">Services Interested In *</legend>
+          <div class="mt-2 space-y-2">
+            {serviceOptions.map((service) => (
+              <label key={service.value} class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="services"
+                  value={service.value}
+                  class="mr-2"
+                />
+                {service.label}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <!-- Preferred Start Date or Time Frame -->
+        <div>
+          <label for="start-date" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Preferred Start Date or Time Frame *
+          </label>
+          <select
+            id="start-date"
+            name="startDate"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          >
+            <option disabled selected value="">Select one</option>
+            <option value="Immediately">Immediately</option>
+            <option value="Within 1 month">Within 1 month</option>
+            <option value="1–3 months">1–3 months</option>
+            <option value="3–6 months">3–6 months</option>
+            <option value="Flexible">Flexible</option>
+          </select>
+        </div>
+
+        <!-- How Did You Hear About Us? -->
+        <div>
+          <label for="referral-source" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            How Did You Hear About Us?
+          </label>
+          <select
+            id="referral-source"
+            name="referralSource"
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          >
+            <option disabled selected value="">Select one</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Online Search">Online Search</option>
+            <option value="Referral">Referral</option>
+            <option value="Advertisement">Advertisement</option>
+            <option value="Event">Event</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Additional Comments or Questions -->
+        <div>
+          <label for="comments" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Additional Comments or Questions (Optional)
+          </label>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="4"
+            class="mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-900 focus:border-green-500 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-green-300 dark:focus:ring-green-300"
+          ></textarea>
+        </div>
+
+        <!-- Consent to Receive Communications -->
+        <div>
+          <label class="flex items-center">
+            <input
+              type="checkbox"
+              id="consent"
+              name="consent"
+              required
+              class="mr-2"
+            />
+            I agree to receive communications from EcoMana regarding services, promotions, and updates.
+          </label>
+        </div>
+
+        <!-- Agreement to Terms and Conditions -->
+        <div>
+          <label class="flex items-center">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              required
+              class="mr-2"
+            />
+            I understand that by joining the waiting list, I have a chance to win a 15% discount, and I agree to the
+            <a href="/terms" class="text-blue-600 underline ml-1">Terms and Conditions</a>.
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button
+            type="submit"
+            id="submit-button"
+            class="w-full md:w-1/2 md:mx-auto bg-green-600 text-white font-semibold py-3 px-6 rounded-md hover:bg-green-700 disabled:opacity-50"
+          >
+            Join the Waiting List
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let formData = {
+        fullName: '',
+        email: '',
+        phone: '',
+        area: '',
+        propertyType: '',
+        services: [],
+        startDate: '',
+        referralSource: '',
+        comments: '',
+        consent: false,
+        terms: false,
+      };
+
+      const form = document.getElementById('waitingListForm');
+      const submitButton = document.getElementById('submit-button');
+      const confirmationMessage = document.getElementById('confirmationMessage');
+      const getformEndpoint = form.getAttribute('data-endpoint'); // Retrieve the endpoint from the data attribute
+
+      // Set default value for selects to ensure they are not pre-filled
+      document.getElementById('property-type').value = "";
+      document.getElementById('start-date').value = "";
+      document.getElementById('referral-source').value = "";
+
+      const handleFormChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        if (type === 'checkbox') {
+          if (e.target.name === 'services') {
+            if (checked) {
+              formData.services.push(value);
+            } else {
+              formData.services = formData.services.filter((service) => service !== value);
+            }
+          } else {
+            formData[name] = checked;
+          }
+        } else {
+          formData[name] = value;
+        }
+      };
+
+      const validateForm = () => {
+        const { fullName, email, area, propertyType, services, startDate, consent, terms } = formData;
+
+        if (!fullName || !email || !area || !propertyType || services.length === 0 || !startDate || !consent || !terms) {
+          alert('Please complete all required fields.');
+          return false;
+        }
+        return true;
+      };
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        submitButton.disabled = true;
+        const formDataToSend = new FormData(form);
+
+        try {
+          if (!getformEndpoint) {
+            alert('Getform endpoint is not defined. Please set PUBLIC_GETFORM_ENDPOINT in your .env file.');
+            return;
+          }
+
+          const response = await fetch(getformEndpoint, {
+            method: 'POST',
+            body: formDataToSend,
+            headers: {
+              Accept: 'application/json',
+            },
+          });
+
+          if (response.ok) {
+            confirmationMessage.classList.remove('hidden');
+            form.reset(); // Reset the form fields
+            formData = {
+              fullName: '',
+              email: '',
+              phone: '',
+              area: '',
+              propertyType: '',
+              services: [],
+              startDate: '',
+              referralSource: '',
+              comments: '',
+              consent: false,
+              terms: false,
+            };
+
+            // Reset the dropdowns after submission
+            document.getElementById('property-type').value = "";
+            document.getElementById('start-date').value = "";
+            document.getElementById('referral-source').value = "";
+
+          } else {
+            alert('There was an error submitting the form. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('There was an error submitting the form. Please try again.');
+        } finally {
+          submitButton.disabled = false;
+        }
+      };
+
+      form.addEventListener('input', handleFormChange);
+      form.addEventListener('submit', handleSubmit);
+    });
+  </script>
+</Layout>
