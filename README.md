@@ -1,6 +1,7 @@
 # Ecomana website
 
 Connection with github version 2
+.env variables included on CodeBuild
 
 ## Deployment
 
