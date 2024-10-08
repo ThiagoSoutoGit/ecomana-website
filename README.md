@@ -1,5 +1,7 @@
 # Ecomana website
 
+Connection with github version 2
+
 ## Deployment
 
 Here's a **summary of the entire process** we went through to set up AWS CodePipeline for deploying your Astro website to an S3 bucket. You can use this summary to update your `README.md` file:
