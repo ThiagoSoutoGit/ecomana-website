@@ -1,7 +1,10 @@
 # Ecomana website
 
+## Changes
+
 Connection with github version 2
 .env variables included on CodeBuild
+Change the bucket name to match the website domain
 
 ## Deployment
 
