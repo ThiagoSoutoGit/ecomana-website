@@ -6,6 +6,22 @@ Connection with github version 2
 .env variables included on CodeBuild
 Change the bucket name to match the website domain
 
+bucket policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::ecomana.co.nz/*"
+        }
+    ]
+}
+```
+
 ## Deployment
 
 Here's a **summary of the entire process** we went through to set up AWS CodePipeline for deploying your Astro website to an S3 bucket. You can use this summary to update your `README.md` file:
