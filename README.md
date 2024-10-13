@@ -5,6 +5,7 @@
 Connection with github version 2
 .env variables included on CodeBuild
 Change the bucket name to match the website domain
+Added a new permission to allow CloudFrontInvalidationPolicy
 
 bucket policy:
 
