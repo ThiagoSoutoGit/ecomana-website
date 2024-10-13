@@ -3,10 +3,17 @@ version: 0.2
 phases:
   install:
     commands:
+      - echo "Installing dependencies"
       - npm install
   build:
     commands:
+      - echo "Building the project"
       - npm run build
+  post_build:
+    commands:
+      - echo "Invalidating CloudFront cache"
+      - aws cloudfront create-invalidation --distribution-id E25X0768LDBJW3 --paths "/*"
+
 artifacts:
   files:
     - '**/*'
