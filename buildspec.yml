@@ -3,14 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Enabling Corepack and installing pnpm"
-      - corepack enable
-      - corepack prepare pnpm@8.15.4 --activate
-      - pnpm install
+      - echo "Installing dependencies using npm"
+      - npm install
   build:
     commands:
-      - echo "Building the project with pnpm"
-      - pnpm run build
+      - echo "Building the project with npm"
+      - npm run build
   post_build:
     commands:
       - echo "Invalidating CloudFront cache"
@@ -20,3 +18,4 @@ artifacts:
   files:
     - '**/*'
   base-directory: dist
+
