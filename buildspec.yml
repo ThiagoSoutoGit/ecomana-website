@@ -5,7 +5,7 @@ phases:
     commands:
       - echo "Enabling Corepack and installing pnpm"
       - corepack enable
-      - corepack prepare pnpm@latest --activate
+      - corepack prepare pnpm@8.15.4 --activate
       - pnpm install
   build:
     commands:
