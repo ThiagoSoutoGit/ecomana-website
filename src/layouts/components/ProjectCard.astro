@@ -1,0 +1,61 @@
+---
+import DynamicIcon from "@/helpers/DynamicIcon";
+import { markdownify } from "@/lib/utils/textConverter";
+import ImageMod from "./ImageMod.astro";
+
+const { project, index } = Astro.props;
+---
+
+<div
+  data-aos="fade-up-sm"
+  data-aos-delay={index * 100 + 150}
+  class="mb-[7.5rem] lg:mb-[13.75rem] last:mb-0 group relative max-md:w-[80%] mx-auto break-inside-avoid"
+>
+  <div class="overflow-hidden">
+    <ImageMod
+      src={project.data.image!}
+      height={0}
+      width={0}
+      loading={"lazy"}
+      format="webp"
+      alt={project.data.title}
+      class="group-hover:scale-105 transition duration-300 ease-out"
+    />
+  </div>
+
+  <div class="flex gap-2 flex-wrap items-center pt-8 justify-between">
+    <a href={`/projects/${project.id}`} class="before:absolute before:inset-0">
+      <h3
+        class="relative pl-5 h5 font-medium before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2.5 before:h-2.5 before:rounded-full before:bg-current"
+        set:html={markdownify(project.data.title)}
+      />
+    </a>
+
+    <div class="flex gap-2 items-center justify-between w-full">
+      <p set:html={markdownify(project.data.project_type!)} />
+
+      {/* Arrow Animation */}
+      <div class="flex h-6 w-6 overflow-hidden items-center justify-center">
+        <div
+          class="h-6 w-6 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center text-primary"
+        >
+          <div class="min-w-6 flex justify-center items-center min-h-6">
+            <DynamicIcon
+              icon="FaArrowRightLong"
+              className="text-2xl -rotate-45"
+            />
+          </div>
+          <div
+            class="min-w-6 flex justify-center items-center min-h-6"
+            aria-hidden="true"
+          >
+            <DynamicIcon
+              icon="FaArrowRightLong"
+              className="text-2xl -rotate-45"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

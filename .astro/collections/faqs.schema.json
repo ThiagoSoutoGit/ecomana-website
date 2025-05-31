@@ -1,0 +1,88 @@
+{
+  "$ref": "#/definitions/faqs",
+  "definitions": {
+    "faqs": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "badge": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "label": {
+              "type": "string"
+            },
+            "icon": {
+              "type": "string"
+            },
+            "bg_color": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "enable",
+            "label",
+            "bg_color"
+          ],
+          "additionalProperties": false
+        },
+        "button": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "enable",
+            "label",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "answer": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "question",
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "badge",
+        "button",
+        "list"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

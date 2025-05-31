@@ -1,0 +1,37 @@
+---
+import dateFormat from "@/lib/utils/dateFormat";
+import { markdownify } from "@/lib/utils/textConverter";
+import ImageMod from "./ImageMod.astro";
+
+const { data: post, index, className } = Astro.props;
+const { title, image, date, description } = post.data;
+---
+
+<div
+  data-aos="fade-up-sm"
+  data-aos-delay={index * 100 + 150}
+  class={`${className ? className : "col-11 sm:col-9 md:col-6 lg:col-4"} mb-12 last:mb-0 mx-auto relative group`}
+>
+  <div class="overflow-hidden">
+    <ImageMod
+      src={image!}
+      alt={title}
+      width={450}
+      height={600}
+      class="object-cover aspect-[9/12] w-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+    />
+  </div>
+  <p
+    class="px-3 py-1 bg-primary/10 text-primary font-medium rounded-full text-sm w-fit mt-8 mb-7"
+  >
+    {dateFormat(date!)}
+  </p>
+
+  <a class="before:absolute before:inset-0" href={`/blog/${post.id}`}>
+    <h2 class="h5 mb-6" set:html={markdownify(title || "")} />
+  </a>
+  <p
+    class="text-base text-body-color mb-7 line-clamp-2"
+    set:html={markdownify(description || "")}
+  />
+</div>

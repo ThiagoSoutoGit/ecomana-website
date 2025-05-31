@@ -1,0 +1,101 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  gallery: CollectionEntry<"homepage">["data"]["gallery"];
+};
+
+const { gallery } = Astro.props;
+const { enable, title, subtitle, description, images } = gallery;
+---
+
+{
+  enable && (
+    <section class="section">
+      <div class="container">
+        {/* section title   */}
+        <div class="row g-5 justify-between items-center max-lg:text-center">
+          <div class="lg:col-4">
+            <p
+              data-aos="fade-up-sm"
+              data-aos-delay="150"
+              class="font-medium text-primary uppercase"
+              set:html={markdownify(subtitle)}
+            />
+            <h2
+              data-aos="fade-up-sm"
+              data-aos-delay="200"
+              class="mt-3 font-medium text-primary"
+              set:html={markdownify(title)}
+            />
+          </div>
+          <p
+            data-aos="fade-up-sm"
+            data-aos-delay="300"
+            class="lg:col-8 h4 text-primary lg:indent-20 text-center lg:text-left"
+            set:html={markdownify(description)}
+          />
+        </div>
+      </div>
+
+      <div class="swiper gallery-slider mt-17.5">
+        <div class="swiper-wrapper">
+          {images?.map((img, i) => (
+            <div class="swiper-slide">
+              <ImageMod
+                height={512}
+                width={392}
+                src={img}
+                alt={`gallery-slider-${i}`}
+                format="webp"
+              />
+            </div>
+          ))}
+        </div>
+        <div class="mt-9 flex items-center justify-center text-center" />
+      </div>
+    </section>
+  )
+}
+<style>
+  .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+</style>
+
+<script>
+  import { Swiper } from "swiper";
+  import "swiper/css";
+  import "swiper/css/pagination";
+  import { Autoplay } from "swiper/modules";
+
+  // astro:page-load event is fired when the page is loaded
+  document.addEventListener("astro:page-load", () => {
+    new Swiper(".gallery-slider", {
+      modules: [Autoplay],
+      spaceBetween: 24,
+      loop: true,
+      centeredSlides: false,
+      speed: 10000,
+      autoplay: {
+        delay: 0,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 4,
+        },
+        992: {
+          slidesPerView: 5,
+        },
+        2000: {
+          slidesPerView: 6,
+        },
+      },
+    });
+  });
+</script>

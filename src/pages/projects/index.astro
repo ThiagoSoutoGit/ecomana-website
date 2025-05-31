@@ -1,0 +1,43 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import FAQs from "@/partials/FAQs.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const FOLDER = "projects";
+
+const postIndex = (await getEntry(
+  FOLDER,
+  "-index",
+)) as CollectionEntry<"projects">;
+
+const projectsSingle = await getSinglePage(FOLDER);
+---
+
+<Base
+  title={postIndex.data.title}
+  meta_title={postIndex.data.meta_title}
+  image={postIndex.data.image}
+  description={postIndex.data.description}
+>
+  <PageHeader title={postIndex?.data.title} />
+
+  <section class="section">
+    <div class="container">
+      <div class="md:columns-2 gap-x-[150px]">
+        {
+          projectsSingle?.map((project, i) => (
+            <ProjectCard project={project} index={i} />
+          ))
+        }
+      </div>
+    </div>
+
+    <CallToAction />
+    <FAQs isNoSectionBottom={true} isNoSectionTop={true} />
+  </section>
+</Base>

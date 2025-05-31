@@ -3,12 +3,14 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing dependencies"
-      - npm install
+      - echo "Enabling Corepack and installing pnpm"
+      - corepack enable
+      - corepack prepare pnpm@latest --activate
+      - pnpm install
   build:
     commands:
-      - echo "Building the project"
-      - npm run build
+      - echo "Building the project with pnpm"
+      - pnpm run build
   post_build:
     commands:
       - echo "Invalidating CloudFront cache"

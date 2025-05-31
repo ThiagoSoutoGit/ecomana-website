@@ -1,0 +1,25 @@
+/* navbar toggler */
+input#nav-toggle:checked + label #show-button {
+  @apply hidden;
+}
+
+input#nav-toggle:checked + label #hide-button {
+  @apply block;
+}
+
+input#nav-toggle:checked ~ #nav-menu {
+  @apply max-lg:block;
+}
+
+/* form style */
+.form-input {
+  @apply w-full rounded-none border border-white/20 bg-transparent p-4 text-text transition placeholder:text-white placeholder:opacity-40 focus:border-white focus:ring-white focus:ring-0;
+
+  &:focus {
+    @apply shadow-transparent! outline-transparent! ring-transparent!;
+  }
+}
+
+.form-label {
+  @apply mb-2 block font-normal text-text-light text-base;
+}

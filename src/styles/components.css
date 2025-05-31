@@ -1,0 +1,155 @@
+/* section style */
+.section {
+  @apply py-20 md:py-24 xl:py-32;
+}
+
+.section-sm {
+  @apply py-16 xl:py-20;
+}
+
+/* Container */
+.container {
+  @apply mx-auto px-4 xl:!max-w-[1225px];
+}
+
+/* social icons */
+.social-icons {
+  @apply space-x-4;
+}
+.social-icons li {
+  @apply inline-block;
+}
+.social-icons li a {
+  @apply flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-center leading-9 text-white;
+}
+.social-icons li a svg {
+  @apply h-5 w-5;
+}
+
+/* notice */
+.notice {
+  @apply mb-6 rounded-lg border px-8 py-6;
+}
+
+.notice-head {
+  @apply flex items-center;
+}
+
+.notice-head svg {
+  @apply mr-3;
+}
+
+.notice-head p {
+  @apply font-primary text-xl font-semibold text-text-dark;
+}
+
+.notice-body {
+  @apply mt-3;
+}
+
+.notice-body p {
+  @apply my-0;
+}
+
+.notice.note {
+  @apply text-[#1B83E2];
+  @apply border-current;
+}
+
+.notice.tip {
+  @apply text-[#40D294];
+  @apply border-current;
+}
+
+.notice.info {
+  @apply text-[#E3A72C];
+  @apply border-current;
+}
+
+.notice.warning {
+  @apply text-[#DB2C23];
+  @apply border-current;
+}
+
+/* tab */
+.tab {
+  @apply overflow-hidden rounded-lg border border-border;
+}
+
+.tab-nav {
+  @apply flex border-b border-border bg-light   !m-0 !list-none;
+}
+
+.tab-nav-item {
+  @apply cursor-pointer border-b-[3px] border-border py-2 text-lg text-text-dark opacity-80 !my-0 !px-8;
+}
+
+.tab-nav-item.active {
+  @apply border-b-[3px] border-dark opacity-100;
+}
+
+.tab-content {
+  @apply px-5;
+}
+
+.tab-content-panel {
+  @apply p-8;
+}
+
+.tab-content-panel p {
+  @apply mb-0;
+}
+
+.tab-content-panel.active {
+  @apply block;
+}
+
+/* accordion */
+.accordion {
+  @apply px-6 overflow-hidden bg-body rounded-3xl border border-border relative mb-4;
+}
+.accordion-header {
+  @apply flex w-full cursor-pointer items-center justify-between text-primary py-8 text-left;
+  h5 {
+    @apply break-words max-w-full text-primary my-0;
+  }
+}
+
+.accordion-icon {
+  @apply h-[1em] w-[1em] rotate-[0];
+}
+
+.accordion-content {
+  @apply ease-out pb-8 text-primary/90 text-lg font-normal lg:col-8 pr-10 pt-4;
+  p {
+    @apply my-0 text-primary/90 text-lg;
+  }
+}
+
+.service-card-hover:hover {
+  @apply duration-300 transition-all ease-in-out;
+  background-color: color-mix(in srgb, var(--color-primary), white 10%);
+}
+
+/* content style */
+.content {
+  @apply prose max-w-none;
+  @apply prose-headings:mb-[.6em] prose-headings:mt-[.8em] prose-headings:text-text-dark prose-headings:font-medium;
+  @apply prose-h1:text-h1-sm md:prose-h1:text-h1;
+  @apply prose-h2:text-h2-sm md:prose-h2:text-h2;
+  @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
+  @apply prose-p:text-lg prose-p:text-text-dark/80;
+  @apply prose-a:text-text prose-a:[&.btn]:no-underline;
+  @apply prose-img:max-w-full prose-img:rounded;
+  @apply prose-strong:text-text-dark prose-strong:font-normal prose-strong:text-2xl;
+  @apply prose-hr:border-border;
+  @apply prose-pre:rounded-lg prose-pre:bg-light;
+  @apply prose-code:text-primary;
+  @apply prose-li:text-text;
+  @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-[10px] prose-blockquote:border-primary prose-blockquote:bg-light prose-blockquote:px-8 prose-blockquote:py-10 prose-blockquote:font-primary prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:text-text-dark;
+  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:border-border prose-table:before:content-[""];
+  @apply prose-thead:border-border prose-thead:bg-light;
+  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[18px] prose-th:text-text-dark;
+  @apply prose-tr:border-border;
+  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px];
+}

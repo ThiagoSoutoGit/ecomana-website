@@ -1,0 +1,74 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const reviewsIndex = (await getEntry(
+  "reviews",
+  "-index"
+)) as CollectionEntry<"reviews">;
+---
+
+<Base {...reviewsIndex}>
+  <PageHeader title={reviewsIndex.data.title} />
+
+  <section class="section pb-0">
+    <div class="container">
+      {
+        reviewsIndex.data.testimonials
+          ?.filter((f) => f.featured)
+          .map((testimonial, i) => (
+            <div
+              class={`row g-5 mb-32 last:mb-0 items-center lg:justify-between flex flex-col md:flex-row ${
+                i % 2 !== 0 ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              <div
+                data-aos={i % 2 === 0 ? "fade-right-sm" : "fade-left-sm"}
+                data-aos-delay="300"
+                class="col-10 lg:col-5"
+              >
+                <ImageMod
+                  src={testimonial.avatar!}
+                  alt={testimonial.name}
+                  width={600}
+                  height={800}
+                  format="webp"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="col-10 lg:col-6">
+                <p
+                  data-aos="fade-up-sm"
+                  data-aos-delay="150"
+                  set:text={markdownify(testimonial.content)}
+                  class="text-primary text-h5 lg:text-h4 before:content-['“'] after:content-['”']"
+                />
+
+                <div
+                  data-aos="fade-up-sm"
+                  data-aos-delay="250"
+                  class="flex items-center flex-wrap gap-3 justify-between mt-10 lg:mt-14"
+                >
+                  <h6
+                    class="font-medium text-2xl relative pl-5 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2.5 before:h-2.5 before:rounded-full before:bg-current"
+                    set:text={markdownify(testimonial.name)}
+                  />
+                  <p set:text={markdownify(testimonial.designation)} />
+                </div>
+              </div>
+            </div>
+          ))
+      }
+    </div>
+  </section>
+
+  <Testimonial isNoSectionBottom />
+  <CallToAction isNoSectionBottom isNoSectionTop />
+</Base>

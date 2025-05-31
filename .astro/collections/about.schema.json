@@ -1,0 +1,110 @@
+{
+  "$ref": "#/definitions/about",
+  "definitions": {
+    "about": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "meta_title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "images_gallery": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blog_section": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "show_blog_count": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "enable",
+            "subtitle",
+            "show_blog_count"
+          ],
+          "additionalProperties": false
+        },
+        "team_section": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "members": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "designation": {
+                    "type": "string"
+                  },
+                  "avatar": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "designation"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "enable",
+            "subtitle",
+            "members"
+          ],
+          "additionalProperties": false
+        },
+        "draft": {
+          "type": "boolean"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "images_gallery",
+        "blog_section",
+        "team_section",
+        "draft"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

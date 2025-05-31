@@ -1,0 +1,112 @@
+/* aos animation */
+[data-aos="fade-up-sm"] {
+  transform: translateY(30px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  &.aos-animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+[data-aos="fade-down-sm"] {
+  transform: translateY(-15px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  &.aos-animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+[data-aos="fade-left-sm"] {
+  transform: translateX(30px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  &.aos-animate {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+[data-aos="fade-right-sm"] {
+  transform: translateX(-30px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  &.aos-animate {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+[data-aos="zoom-out-sm"] {
+  transform: scale(1.05);
+  opacity: 0.5;
+  transition-property: transform, opacity;
+  &.aos-animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+[data-aos="zoom-in-sm"] {
+  transform: scale(0.9);
+  opacity: 0.5;
+  transition-property: transform, opacity;
+  &.aos-animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* spin-animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-animation {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes line-slide {
+  0% {
+    background-position: -5% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* gallery image zoom animation */
+.gallery {
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .overlay.open {
+    opacity: 1;
+  }
+
+  .floating-image {
+    max-width: 90%;
+    max-height: 90%;
+    transform: scale(0.5);
+    opacity: 0;
+    transition:
+      transform 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
+  }
+
+  .floating-image.open {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

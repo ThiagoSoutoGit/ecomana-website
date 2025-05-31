@@ -1,0 +1,52 @@
+---
+import Button from "@/components/Button.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  projects: CollectionEntry<"homepage">["data"]["projects"];
+};
+
+const projectsSingle = (await getSinglePage("projects")).filter(
+  (f) => f.data.featured_in_homepage
+);
+
+const { projects } = Astro.props;
+const { enable, title, subtitle } = projects;
+---
+
+{
+  enable && (
+    <section class="section">
+      <div class="container">
+        <div class="md:columns-2 gap-x-[150px]">
+          {/* section title */}
+          <div class="mb-[5rem] lg:mb-[11rem] max-md:text-center">
+            <p
+              data-aos="fade-up-sm"
+              data-aos-delay="150"
+              class="font-medium uppercase"
+              set:html={markdownify(subtitle)}
+            />
+            <h2
+              data-aos="fade-up-sm"
+              data-aos-delay="250"
+              class="mt-3 font-medium"
+              set:html={markdownify(title)}
+            />
+          </div>
+
+          {projectsSingle?.map((project, i) => (
+            <ProjectCard project={project} index={i} />
+          ))}
+        </div>
+
+        <div class="max-md:mt-14 max-md:text-center">
+          <Button {...projects.button} />
+        </div>
+      </div>
+    </section>
+  )
+}

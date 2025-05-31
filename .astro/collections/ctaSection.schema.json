@@ -1,0 +1,75 @@
+{
+  "$ref": "#/definitions/ctaSection",
+  "definitions": {
+    "ctaSection": {
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "button_solid": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "enable",
+            "label",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "button_outline": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "label": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "enable",
+            "label",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "enable",
+        "title",
+        "description",
+        "image",
+        "button_solid",
+        "button_outline"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

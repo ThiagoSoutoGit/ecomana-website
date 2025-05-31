@@ -1,74 +1,34 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
-import Hero from '../components/Hero.astro'
-import Feature from '../components/Feature.astro'
-import Counter from '../components/Counter.astro'
-import ContentMedia from '../components/ContentMedia.astro'
+import HeroBanner from "@/components/HeroBanner.astro";
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import FAQs from "@/partials/FAQs.astro";
+import GallerySlider from "@/partials/GallerySlider.astro";
+import HomeProjectsSection from "@/partials/HomeProjectsSection.astro";
+import HomeServicesFactsSection from "@/partials/HomeServicesFactsSection.astro";
+import HomeServicesSection from "@/partials/HomeServicesSection.astro";
+import FunFacts from "@/partials/FunFacts.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const homepage = (await getEntry(
+  "homepage",
+  "-index"
+)) as CollectionEntry<"homepage">;
+
+const { banner, gallery, fun_facts, services, services_facts, projects } =
+  homepage.data;
 ---
 
-<DefaultLayout title="Home">
-  <Hero />
-  <section class="my-64">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Why EcoMana?</h2>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:account-check-outline" title="Trusted Professionals">
-          Our team consists of certified painters committed to delivering exceptional results you can trust.
-        </Feature>
-        <Feature icon="mdi:earth" title="Embracing Māori Values">
-          We integrate Māori principles of Whakawhanaungatanga (family) and Wairuatanga (spiritual, health, and wellbeing) in all our projects.
-        </Feature>
-        <Feature icon="mdi:map-marker-radius" title="Local to Tauranga">
-          Proudly serving the Tauranga community with local expertise and a personal touch.
-        </Feature>
-        <Feature icon="mdi:handshake-outline" title="Reliable Service">
-          Count on us for punctuality and professionalism from start to finish.
-        </Feature>
-        <Feature icon="mdi:leaf" title="Eco-Friendly Practices">
-          We use environmentally friendly paints and sustainable methods to protect our beautiful New Zealand.
-        </Feature>
-        <Feature icon="mdi:palette-swatch" title="Quality Workmanship">
-          Delivering high-quality finishes that enhance and preserve your property's value.
-        </Feature>
-        <Feature icon="mdi:account-group-outline" title="Personalized Solutions">
-          Tailoring our services to meet your unique needs and preferences.
-        </Feature>
-        <Feature icon="mdi:star-face" title="Customer Satisfaction">
-          Your happiness is our priority—we strive for excellence in every project.
-        </Feature>
-        <Feature icon="mdi:shield-check-outline" title="Licensed & Insured">
-          Fully licensed and insured for your peace of mind and protection.
-        </Feature>
-      </div>
-
-    </div>
-  </section>
-  <ContentMedia imgSrc="/eco.png">
-    <h2>Our ways</h2>
-    <p class="text-2xl">
-      At EcoMana, sustainability is more than a buzzword—it's the essence of our operations. 
-      We are dedicated to minimizing our environmental impact by using eco-friendly paints and sustainable materials. 
-    </p>
-    <p class="text-2xl">
-      Our practices include responsible waste management, energy-efficient processes, and sourcing products from environmentally conscious suppliers. 
-      We believe in creating beautiful spaces while preserving the natural beauty of New Zealand for future generations.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/maori-removebg-preview.jpg" reverseImg={true}>
-    <h2>Our Values</h2>
-    <p class="text-2xl">
-      EcoMana weaves Māori principles—Whakawhanaungatanga (building relationships) and Wairuatanga (spiritual wellbeing)—into every project. Guided by respectful protocols like Karakia, we aim to uplift the mana (spiritual power) of each place, delivering quality workmanship that benefits communities and environments alike. 
-    </p>
-  </ContentMedia>
-  <section class="mb-32 mt-64">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">You Can Count On Us</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter icon="mdi:tag-percent" count="15%" title="Discount" sub="Early Sign-Ups" />
-        <Counter icon="mdi:leaf" count="100%" title="Eco-Friendly" sub="Materials" />
-        <Counter icon="mdi:account-group" count="25" title="Years" sub="Combined Experience" />
-        <Counter icon="mdi:calendar" count="2" title="Months" sub="Until Launch" />
-      </div>
-    </div>
-  </section>
-</DefaultLayout>
+<Base>
+  <HeroBanner banner={banner} />
+  <GallerySlider gallery={gallery} />
+  <FunFacts funFacts={fun_facts} isNoSectionTop={true} />
+  <Testimonial isNoSectionTop />
+  <HomeServicesSection services={services} />
+  <HomeServicesFactsSection services_facts={services_facts} />
+  <HomeProjectsSection projects={projects} />
+  <CallToAction isNoSectionTop={true} />
+  <FAQs isNoSectionTop={true} />
+</Base>

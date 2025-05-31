@@ -1,0 +1,136 @@
+---
+import ArrowBtn from "@/components/ArrowBtn.astro";
+import Button from "@/components/Button.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import config from "@/config/config.json";
+import menu from "@/config/menu.json";
+import social from "@/config/social.json";
+import { markdownify } from "@/lib/utils/textConverter";
+
+const { footer_title, address, phone, email, footer_content } = config.params;
+---
+
+<footer class="section pb-0 bg-primary">
+  <div class="container">
+    <div class="row max-md:justify-center gx-4">
+      <div class="md:col-6 lg:col-5 max-md:text-center">
+        <h2
+          data-aos="fade-up-sm"
+          data-aos-delay="150"
+          class="font-medium text-white mb-8"
+          set:html={markdownify(footer_title)}
+        />
+
+        <div data-aos="fade-up-sm" data-aos-delay="200">
+          <Button
+            enable={config.footer_button.enable}
+            label={config.footer_button.label}
+            link={config.footer_button.link}
+            style="btn-secondary"
+          />
+        </div>
+      </div>
+
+      <div class="md:col-6 lg:col-7 ml-auto max-md:mt-14">
+        <div class="mb-10 lg:mb-8">
+          <div
+            class="row max-lg:gy-4 justify-center max-md:text-center lg:justify-end"
+          >
+            {
+              menu.footer.map((menu, i) => (
+                <div
+                  data-aos="fade-up-sm"
+                  data-aos-delay={i * 100 + 200}
+                  class="col-10 md:col-6 lg:col-3 pr-0"
+                >
+                  <h5 class="mb-7 font-normal text-base lg:mb-6 text-text-light/50">
+                    {menu.title}
+                  </h5>
+                  <ul>
+                    {menu.children.map((child) => (
+                      <li class="mb-4 text-text-light text-base hover:text-secondary text-lg!">
+                        <a href={child.url}>{child.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row section">
+      <div class="md:col-10">
+        <div class="row g-5 max-md:justify-center">
+          <div
+            data-aos="fade-up-sm"
+            data-aos-delay="300"
+            class="col-10 md:col-6"
+          >
+            <ImageMod
+              src={config.site.logo_footer}
+              width={215}
+              height={52}
+              alt="footer logo"
+              class="mb-3 max-md:mx-auto"
+              format="webp"
+              loading="lazy"
+            />
+            <p
+              class="text-text-light/50 text-balance max-md:text-center"
+              set:html={markdownify(footer_content)}
+            />
+          </div>
+
+          <div
+            data-aos="fade-up-sm"
+            data-aos-delay="350"
+            class="col-10 md:col-6 lg:col-3 max-md:text-center"
+          >
+            <ul>
+              <li
+                class="mb-4 text-text-light text-base hover:text-secondary text-lg!"
+              >
+                <a href={`tel:${phone}`}>{phone}</a>
+              </li>
+              <li
+                class="mb-4 text-text-light text-base hover:text-secondary text-lg!"
+              >
+                <a href={`mailto:${email}`}>{email}</a>
+              </li>
+              <li
+                class="mb-4 text-text-light text-base hover:text-secondary text-lg!"
+              >
+                <a
+                  target="_blank"
+                  href={`https://www.google.com/maps?q=${encodeURIComponent(address)}`}
+                  set:html={markdownify(address)}
+                />
+              </li>
+            </ul>
+          </div>
+
+          <div
+            data-aos="fade-up-sm"
+            data-aos-delay="450"
+            class="col-10 md:col-6 lg:col-3 max-md:text-center"
+          >
+            <ul
+              class="flex flex-col gap-3 max-md:items-center max-md:[&>li]:ml-6"
+            >
+              {
+                social.main.map((item) => (
+                  <li>
+                    <ArrowBtn label={item.name} link={item.link} />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

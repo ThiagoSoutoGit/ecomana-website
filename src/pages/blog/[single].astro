@@ -1,0 +1,117 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Button from "@/components/Button.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import dateFormat from "@/lib/utils/dateFormat";
+import similarItems from "@/lib/utils/similarItems";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getSinglePage("blog");
+
+  const paths = posts.map((post) => ({
+    params: {
+      single: post.id,
+    },
+    props: { post },
+  }));
+  return paths;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, meta_title, description, image, date } = post.data;
+
+const posts = await getSinglePage("blog");
+const similarPosts = similarItems(post, posts);
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <section>
+    <div class="bg-primary row justify-center text-center">
+      <div
+        data-aos="zoom-in-sm"
+        data-aos-delay="200"
+        class="col-10 xl:col-7 pt-[16.25rem] pb-[10rem] text-white"
+      >
+        {date && <span>Posted on {dateFormat(date)}</span>}
+
+        <h1
+          class="text-center pt-3.5 text-white"
+          set:html={markdownify(title)}
+        />
+      </div>
+    </div>
+    <div class="container section-sm pb-0">
+      <div class="row justify-center">
+        <article class="col-11 mx-auto lg:col-10">
+          {
+            image && (
+              <div class="pb-10">
+                <ImageMod
+                  src={image}
+                  height={800}
+                  width={1200}
+                  alt={title}
+                  class="w-full"
+                  format="webp"
+                  class="object-cover aspect-[16/9] w-full"
+                />
+              </div>
+            )
+          }
+
+          <div class="content mb-10">
+            <Content />
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pb-0">
+    <div class="container">
+      <!-- Related posts -->
+      <div class="row justify-between">
+        {/* section title   */}
+        <div class="lg:col-3 max-lg:text-center">
+          <p
+            data-aos="fade-up-sm"
+            data-aos-delay="150"
+            class="font-medium text-primary uppercase"
+            set:html={markdownify("BLOG")}
+          />
+          <h2
+            data-aos="fade-up-sm"
+            data-aos-delay="200"
+            class="my-3 font-medium text-primary"
+            set:html={markdownify("Related Contents")}
+          />
+          <div data-aos="fade-up-sm" data-aos-delay="300">
+            <Button enable label="View All" link="/blog" />
+          </div>
+        </div>
+        <div class="lg:col-8 max-lg:mt-14">
+          <div class="row">
+            {
+              similarPosts.map((post) => (
+                <BlogCard data={post} className="md:col-6" />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction isNoSectionBottom />
+</Base>

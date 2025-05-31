@@ -1,0 +1,60 @@
+---
+import Button from "@/components/Button.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const call_to_action = (await getEntry(
+  "ctaSection",
+  "call-to-action",
+)) as CollectionEntry<"ctaSection">;
+
+type Props = {
+  isNoSectionTop?: boolean;
+  isNoSectionBottom?: boolean;
+};
+
+const { isNoSectionTop = false, isNoSectionBottom = false } = Astro.props;
+---
+
+{
+  call_to_action.data.enable && (
+    <section
+      class={`section ${isNoSectionTop && "pt-0"}  ${isNoSectionBottom && "pb-0"}`}
+    >
+      {/* bg-[url(/images/banner.png)]  */}
+      <div class="bg-[url(/images/call-to-action.png)] bg-cover bg-center section md:h-[600px] lg:h-[890px]">
+        <div class="container">
+          <div class="flex flex-col lg:flex-row max-lg:items-center max-lg:text-center lg:justify-between gap-6 lg:gap-14">
+            <h2
+              data-aos="fade-up-sm"
+              data-aos-delay="150"
+              class="h1 text-white flex-1"
+              set:html={markdownify(call_to_action.data.title)}
+            />
+            <div class="flex-1">
+              <p
+                data-aos="fade-up-sm"
+                data-aos-delay="250"
+                class="mt-4 text-white/80 text-balance text-lg"
+                set:html={markdownify(call_to_action.data.description)}
+              />
+
+              <div class="flex flex-wrap gap-5 pt-8 max-lg:justify-center">
+                <div data-aos="zoom-in-sm" data-aos-delay="250">
+                  <Button {...call_to_action.data.button_solid} />
+                </div>
+                <div data-aos="zoom-in-sm" data-aos-delay="350">
+                  <Button
+                    {...call_to_action.data.button_outline}
+                    style="btn-outline"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

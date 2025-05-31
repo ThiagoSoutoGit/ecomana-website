@@ -1,0 +1,26 @@
+---
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { humanize } from "@/lib/utils/textConverter";
+
+const { title = "" }: { title?: string } = Astro.props;
+
+const isContactPage = Astro.url.pathname === "/contact";
+---
+
+<section>
+  <div class="text-center">
+    <div
+
+      class={`${isContactPage ? "h-[400px] lg:h-[650px]" : "pt-[240px] pb-[140px]"} bg-[url(/images/page-header.png)] bg-cover bg-bottom bg-no-repeat`}
+    >
+    {
+      !isContactPage && (
+        <h1 data-aos="zoom-out-sm"
+        data-aos-delay="150" class="text-white" set:text={humanize(title)} />
+      <Breadcrumbs className="mt-3" />
+      )
+    }
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,128 @@
+{
+  "main": [
+    {
+      "name": "All Pages",
+      "url": "",
+      "hasMegamenu": true,
+      "image": "/images/menu.png",
+      "children": [
+        {
+          "children": [
+            {
+              "name": "Homepage",
+              "url": "/"
+            },
+            {
+              "name": "About",
+              "url": "/about"
+            },
+            {
+              "name": "Terms",
+              "url": "/terms-and-conditions"
+            },
+            {
+              "name": "Services",
+              "url": "/services"
+            },
+            {
+              "name": "Blog",
+              "url": "/blog"
+            },
+            {
+              "name": "Privacy",
+              "url": "/privacy-policy"
+            },
+            {
+              "name": "Reviews",
+              "url": "/reviews"
+            },
+            {
+              "name": "Blog Details",
+              "url": "/blog/post-1"
+            },
+            {
+              "name": "FAQs",
+              "url": "/faqs"
+            },
+            {
+              "name": "Projects",
+              "url": "/projects"
+            },
+            {
+              "name": "Gallery",
+              "url": "/gallery"
+            },
+            {
+              "name": "Contact",
+              "url": "/contact"
+            },
+            {
+              "name": "Project Details",
+              "url": "/projects/project-1"
+            },
+            {
+              "name": "Career",
+              "url": "/career"
+            },
+            {
+              "name": "Elements",
+              "url": "/elements"
+            },
+            {
+              "name": "404",
+              "url": "/404"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Works",
+      "url": "/projects"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "title": "Quick Links",
+      "children": [
+        {
+          "name": "Projects",
+          "url": "/projects"
+        },
+        {
+          "name": "About Us",
+          "url": "/about"
+        },
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "Career",
+          "url": "/career"
+        }
+      ]
+    },
+    {
+      "title": "Legal & Policy Links",
+      "children": [
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
+        },
+        {
+          "name": "Terms of Service",
+          "url": "/terms-and-conditions"
+        },
+        {
+          "name": "Contact Us",
+          "url": "/contact"
+        }
+      ]
+    }
+  ]
+}

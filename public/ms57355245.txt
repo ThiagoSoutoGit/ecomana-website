@@ -1,4 +1,4 @@
-﻿{
+{
   "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
   "Domain": "ecomana.co.nz",
   "Id": "4fa730bb-bc11-413f-8583-de66f5d1e0e7"

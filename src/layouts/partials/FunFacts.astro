@@ -1,0 +1,47 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+import Counter from "../functional-component/Counter";
+
+type Props = {
+  funFacts: CollectionEntry<"homepage">["data"]["fun_facts"];
+  isNoSectionTop?: boolean;
+};
+const { funFacts, isNoSectionTop = false } = Astro.props;
+---
+
+{
+  funFacts.enable && (
+    <section class={`section ${isNoSectionTop && "pt-0"}`}>
+      <div class="container">
+        <div
+          class={`${funFacts.metrics.length < 2 ? "text-center" : "grid justify-start text-left md:grid-cols-2 lg:grid-cols-4"} gap-8 text-wrap break-words overflow-hidden w-[85%] lg:w-full mx-auto`}
+        >
+          {funFacts.metrics?.map((metric) => (
+            <div class={` ${funFacts.metrics.length < 2 && "text-center"}`}>
+              <p
+                class={`${funFacts.metrics.length < 2 ? "h1" : "h1"} font-medium text-primary mb-2 break-words overflow-hidden`}
+              >
+                <Counter
+                  client:only="react"
+                  count={metric.counter.count}
+                  suffix={metric.counter.count_suffix}
+                  prefix={metric.counter.count_prefix}
+                  duration={metric.counter.count_duration}
+                />
+              </p>
+              <h3
+                class="text-xl font-normal text-primary/80 mb-2"
+                set:html={markdownify(metric.name || "")}
+              />
+              <p
+                class="text-balance"
+                set:html={markdownify(metric.description || "")}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

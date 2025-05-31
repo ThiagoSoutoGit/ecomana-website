@@ -1,17 +1,30 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Button from "@/components/Button.astro";
+import Base from "@/layouts/Base.astro";
 ---
 
-<DefaultLayout title="404">
-  <section class="my-12">
-    <div class="container">
-      <h1>404</h1>
+<Base title="Page Not Found">
+  <section class="relative pt-[260px] pb-[160px] text-center overflow-hidden">
+    <div
+      class="absolute inset-0 bg-[url(/images/page-header.png)] bg-cover bg-center grayscale-[100%] z-0"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative z-10 container">
+      <div class="row justify-center">
+        <div class="sm:col-10 md:col-8 lg:col-6">
+          <span class="text-h1 lg:text-[6rem] block font-medium text-white"
+            >Whooops!</span
+          >
+          <div class="content mb-14">
+            <p class="text-white">
+              You may have type wrong URL or this page has been removed.
+            </p>
+          </div>
+          <Button enable label="Back to Home" link="/" />
+        </div>
+      </div>
     </div>
   </section>
-  <section class="my-12">
-    <div class="space-content container">
-      <p class="text-2xl">This page does not exist. Don't worry though, we got you.</p>
-      <a class="button" href="/">Let's get you home Astronout 🚀</a>
-    </div>
-  </section>
-</DefaultLayout>
+</Base>

@@ -1,0 +1,87 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import FAQs from "@/partials/FAQs.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const FOLDER = "services";
+
+const servicesIndex = (await getEntry(
+  FOLDER,
+  "-index"
+)) as CollectionEntry<"services">;
+const services = await getSinglePage(FOLDER);
+---
+
+<Base
+  title={servicesIndex.data.title}
+  meta_title={servicesIndex.data.meta_title}
+  image={servicesIndex.data.image}
+  description={servicesIndex.data.description}
+>
+  <PageHeader title={servicesIndex?.data.title} />
+  <section class="section">
+    <div class="container">
+      {
+        services?.map((service, i) => (
+          <div
+            class={`row g-5 mb-32 last:mb-0 items-center justify-between flex flex-col md:flex-row ${
+              i % 2 !== 0 ? "md:flex-row-reverse" : ""
+            }`}
+          >
+            <div
+              data-aos={i % 2 === 0 ? "fade-right-sm" : "fade-left-sm"}
+              data-aos-delay="300"
+              class="col-10 lg:col-5 mx-auto"
+            >
+              <ImageMod
+                src={service.data.image!}
+                alt={service.data.title}
+                width={600}
+                height={800}
+                format="webp"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="col-10 lg:col-5 mx-auto">
+              <h2
+                data-aos="fade-up-sm"
+                data-aos-delay="150"
+                class="h4 pb-24"
+                set:html={markdownify(service.data.title)}
+              />
+
+              {service.data.features?.map((feature, j) => (
+                <div
+                  data-aos="fade-up-sm"
+                  data-aos-delay={j * 100 + 200}
+                  class="mb-8 last:mb-0"
+                >
+                  <h3 class="h6 text-primary/75 pb-3">
+                    <span class="mr-4 text-primary/25">
+                      {String(j + 1).padStart(2, "0")}
+                    </span>
+                    {feature.name}
+                  </h3>
+
+                  <p
+                    class="text-balance"
+                    set:html={markdownify(feature.description || "")}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+  <CallToAction isNoSectionTop={true} />
+  <FAQs isNoSectionTop={true} />
+</Base>

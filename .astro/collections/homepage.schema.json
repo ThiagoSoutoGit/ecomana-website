@@ -1,0 +1,285 @@
+{
+  "$ref": "#/definitions/homepage",
+  "definitions": {
+    "homepage": {
+      "type": "object",
+      "properties": {
+        "banner": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "spinning_text": {
+              "type": "string"
+            },
+            "button": {
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "type": "boolean"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "enable",
+                "label",
+                "link"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "title",
+            "content",
+            "image",
+            "button"
+          ],
+          "additionalProperties": false
+        },
+        "gallery": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "images": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "enable",
+            "title",
+            "subtitle",
+            "description",
+            "images"
+          ],
+          "additionalProperties": false
+        },
+        "fun_facts": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "counter": {
+                    "type": "object",
+                    "properties": {
+                      "count": {
+                        "type": "string"
+                      },
+                      "count_suffix": {
+                        "type": "string"
+                      },
+                      "count_prefix": {
+                        "type": "string"
+                      },
+                      "count_duration": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "count",
+                      "count_suffix",
+                      "count_prefix",
+                      "count_duration"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "description",
+                  "counter"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "enable",
+            "title",
+            "description",
+            "metrics"
+          ],
+          "additionalProperties": false
+        },
+        "services": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "button": {
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "type": "boolean"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "enable",
+                "label",
+                "link"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "enable",
+            "title",
+            "subtitle",
+            "button"
+          ],
+          "additionalProperties": false
+        },
+        "services_facts": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "enable",
+            "title",
+            "subtitle",
+            "metrics"
+          ],
+          "additionalProperties": false
+        },
+        "projects": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "button": {
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "type": "boolean"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "enable",
+                "label",
+                "link"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "enable",
+            "title",
+            "subtitle",
+            "button"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "banner",
+        "gallery",
+        "fun_facts",
+        "services",
+        "services_facts",
+        "projects"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

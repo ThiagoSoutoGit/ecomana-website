@@ -1,0 +1,28 @@
+---
+import GalleryCard from "@/components/GalleryCard.astro";
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const galleryIndex = (await getEntry(
+  "gallery",
+  "-index",
+)) as CollectionEntry<"gallery">;
+---
+
+<Base {...galleryIndex}>
+  <PageHeader title={galleryIndex.data.title} />
+
+  <section class="section">
+    <div class="container">
+      <div class="md:columns-2 gap-x-[150px]">
+        {
+          galleryIndex.data.gallery_images?.map((item, i) => (
+            <GalleryCard item={item} index={i} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

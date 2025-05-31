@@ -1,0 +1,101 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import Button from "./Button.astro";
+
+const { banner } = Astro.props;
+---
+
+<!-- bg-[url(/images/banner.png)] -->
+<section
+  class={`section relative bg-[url(${banner.image})] bg-cover bg-center md:h-[calc(65svh)] lg:h-[calc(100svh_-_28px)]`}
+>
+  <div class="container max-lg:mt-20 lg:h-full relative z-30">
+    <div
+      class="row h-full items-center justify-center lg:-translate-x-16 max-lg:text-center"
+    >
+      <div class="md:col-8 relative">
+        <h1
+          data-aos="fade-up-sm"
+          data-aos-delay="100"
+          class="h2 md:h1 text-white lg:text-[5rem] xl:text-[6rem] font-medium xl:leading-[6.56rem] tracking-tight relative text-balance"
+          set:html={markdownify(banner.title)}
+        >
+          <!-- Rotating Text Decoration -->
+          <span
+            data-aos="fade-up-sm"
+            data-aos-delay="150"
+            class="absolute top-[0.55em] -right-[0.7em] translate-y-[-50%] -translate-x-[20%] w-[200px] h-[200px]"
+          >
+            <svg
+              class="absolute inset-0 w-full h-full scale-[0.6] lg:scale-[0.8] spin-animation origin-center"
+              viewBox="0 0 220 220"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- Full Outer Circle Border -->
+              <circle
+                cx="110"
+                cy="110"
+                r="108"
+                stroke="white"
+                stroke-opacity="0.5"
+                stroke-width="1"
+                fill="none"></circle>
+
+              <!-- Inner Decorative Circle -->
+              <circle
+                cx="110"
+                cy="110"
+                r="70"
+                stroke="white"
+                stroke-opacity="0.5"
+                stroke-width="1"
+                fill="none"></circle>
+
+              <!-- Circular Text Path -->
+              <path
+                id="circlePath"
+                d="M 110,110 m -85,0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0"
+                fill="none"></path>
+
+              <!-- Text on Path -->
+              <text>
+                <textPath
+                  href="#circlePath"
+                  startOffset="0"
+                  textLength="520"
+                  style="
+          font-size: 20px;
+          font-family: 'DM Sans', sans-serif;
+          font-weight: 500;
+          letter-spacing: 2px;
+          fill: white;
+          opacity: 0.6;
+        "
+                >
+                  {banner.spinning_text}
+                </textPath>
+              </text>
+            </svg>
+          </span>
+          <!-- /Rotating Text Decoration -->
+        </h1>
+
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center gap-6 mt-10"
+        >
+          <p
+            data-aos="fade-up-sm"
+            data-aos-delay="300"
+            class="text-xl text-white/85 flex-1 text-balance leading-[34px]"
+          >
+            {markdownify(banner.content)}
+          </p>
+
+          <div data-aos="fade-up-sm" data-aos-delay="450">
+            <Button {...banner.button} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

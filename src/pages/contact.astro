@@ -1,0 +1,145 @@
+---
+import Button from "@/components/Button.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const contact = (await getEntry(
+  "contact",
+  "-index"
+)) as CollectionEntry<"contact">;
+const { contact_form_action }: { contact_form_action: string } = config.params;
+const { title, description, meta_title, image, address_section } = contact.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <PageHeader title={title} />
+  <section
+    class="-mt-[45%] sm:-mt-[30%] md:-mt-[25%] lg:-mt-[40%] xl:-mt-[30%] 2xl:-mt-[23%]"
+  >
+    <div class="container">
+      <div
+        class="flex flex-col lg:flex-row gap-20 justify-center lg:justify-between"
+      >
+        <div class="lg:w-[52%]">
+          <form
+            data-aos="fade-right-sm"
+            data-aos-delay="150"
+            class="bg-primary px-12 py-14"
+            action={contact_form_action}
+            method="POST"
+          >
+            <h2 class="text-white mb-4" set:html={markdownify(title)} />
+            {
+              description && (
+                <p
+                  class="text-text-light/80 mb-16"
+                  set:html={markdownify(description)}
+                />
+              )
+            }
+
+            <div class="mb-6">
+              <label for="name" class="form-label">
+                Full Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="John Doe"
+                type="text"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="email" class="form-label">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="john.doe@email.com"
+                type="email"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="name" class="form-label">
+                Inquire Subject <span class="text-red-500">*</span>
+              </label>
+              <input
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Want to decor my house"
+                type="text"
+              />
+            </div>
+            <div class="mb-6">
+              <label for="message" class="form-label">
+                Message <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-input"
+                placeholder="Write your messages..."
+                rows="3"></textarea>
+            </div>
+            <Button
+              enable
+              label="Send a message"
+              type="submit"
+              style="btn-outline"
+            />
+          </form>
+        </div>
+
+        <div class="lg:w-[40%] self-center lg:self-end pb-14">
+          <h3
+            data-aos="fade-up-sm"
+            data-aos-delay="150"
+            class="h4 mb-4"
+            set:html={markdownify(address_section.title)}
+          />
+          <p
+            data-aos="fade-up-sm"
+            data-aos-delay="200"
+            class="text-balance"
+            set:html={markdownify(address_section.description)}
+          />
+
+          <ul class="grid grid-cols-2 gap-8 mt-12">
+            <li data-aos="fade-up-sm" data-aos-delay="250">
+              <h4 class="h6 mb-3">Working Mail</h4>
+              <a href={`mailto:${config.params.email}`}>{config.params.email}</a
+              >
+            </li>
+            <li data-aos="fade-up-sm" data-aos-delay="300">
+              <h4 class="h6 mb-3">Office Phone</h4>
+              <a href={`tel:${config.params.phone}`}>{config.params.phone}</a>
+            </li>
+            <li data-aos="fade-up-sm" data-aos-delay="350">
+              <h4 class="h6 mb-3">Office Address</h4>
+              <a
+                target="_blank"
+                href={`https://www.google.com/maps?q=${encodeURIComponent(config.params.address)}`}
+                set:html={markdownify(config.params.address)}
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <CallToAction isNoSectionTop={true} isNoSectionBottom={true} />
+</Base>

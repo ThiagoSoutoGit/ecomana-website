@@ -1,0 +1,50 @@
+{
+  "$ref": "#/definitions/contact",
+  "definitions": {
+    "contact": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "meta_title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "address_section": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        "draft": {
+          "type": "boolean"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "address_section"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

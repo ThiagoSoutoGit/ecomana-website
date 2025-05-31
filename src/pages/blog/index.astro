@@ -1,0 +1,48 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Pagination from "@/components/Pagination.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import CallToAction from "@/partials/CallToAction.astro";
+import FAQs from "@/partials/FAQs.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const BLOG_FOLDER = "blog";
+
+const postIndex = (await getEntry(
+  BLOG_FOLDER,
+  "-index"
+)) as CollectionEntry<"blog">;
+const posts = await getSinglePage(BLOG_FOLDER);
+const sortedPosts = sortByDate(posts);
+const totalPages: number = Math.ceil(posts.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+---
+
+<Base
+  title={postIndex.data.title}
+  meta_title={postIndex.data.meta_title}
+  image={postIndex.data.image}
+  description={postIndex.data.description}
+>
+  <PageHeader title={postIndex?.data.title} />
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        {currentPosts.map((post, i) => <BlogCard data={post} index={i} />)}
+        <Pagination
+          section={BLOG_FOLDER}
+          currentPage={1}
+          totalPages={totalPages}
+        />
+      </div>
+    </div>
+  </section>
+
+  <CallToAction isNoSectionTop />
+  <FAQs isNoSectionTop />
+</Base>

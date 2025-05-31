@@ -1,0 +1,81 @@
+---
+import Button from "@/components/Button.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+const { services } = Astro.props;
+
+const featuredHomeServices = (await getSinglePage("services")).filter(
+  (s) => s.data.featured_in_homepage,
+);
+---
+
+{
+  services.enable && (
+    <section class="section pt-0">
+      <div class="container">
+        {/* section title   */}
+        <div class="row gap-4 justify-center lg:justify-between items-center max-lg:text-center">
+          <div class="lg:col-6">
+            <p
+              data-aos="fade-up-sm"
+              data-aos-delay="150"
+              class="font-medium text-primary uppercase"
+              set:html={markdownify(services.subtitle)}
+            />
+            <h2
+              data-aos="fade-up-sm"
+              data-aos-delay="200"
+              class="mt-3 font-medium text-primary"
+              set:html={markdownify(services.title)}
+            />
+          </div>
+
+          {services.button.enable && (
+            <div
+              data-aos="fade-up-sm"
+              data-aos-delay="300"
+              class="lg:col-4 flex flex-col items-center lg:items-end mt-6 lg:mt-auto"
+            >
+              <Button {...services.button} />
+            </div>
+          )}
+        </div>
+
+        {/* services cards  */}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-24 pt-10 md:pt-40 px-4 sm:px-10 lg:px-0 overflow-hidden max-md:w-[90%] mx-auto">
+          {featuredHomeServices?.map((service, index) => (
+            <div
+              data-aos="fade-up-sm"
+              data-aos-delay={index * 100 + 300}
+              class="flex flex-col md:h-[550px] justify-end mb-14 last:mb-0"
+            >
+              <div class="flex justify-center items-end md:h-[400px]">
+                <ImageMod
+                  src={service.data.image!}
+                  alt={service.data.title}
+                  width={600}
+                  height={500}
+                  format="webp"
+                  class={`${
+                    index % 3 === 1
+                      ? "h-[500px] object-cover w-full"
+                      : "h-[410px] object-cover w-full self-end"
+                  }`}
+                />
+              </div>
+
+              <div class="mt-10 text-center">
+                <h3
+                  class="h5 font-medium mb-2"
+                  set:html={markdownify(service.data.title)}
+                />
+                <p set:html={markdownify(service.data.description)} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
