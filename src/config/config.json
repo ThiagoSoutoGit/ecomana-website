@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "NextSpace - Architecture &amp; Interior Firm Astro Template",
-    "base_url": "https://nextspace-astro.vercel.app",
+    "title": "Ecomana - An Eco painting company with real values",
+    "base_url": "http://ecomana.co.nz",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -45,6 +45,6 @@
   "metadata": {
     "meta_author": "Thiago Souto",
     "meta_image": "/images/og-image.png",
-    "meta_description": "NextSpace - Architecture &amp; Interior Firm Astro Template"
+    "meta_description": "Ecomana - An Eco painting company with real values"
   }
 }
