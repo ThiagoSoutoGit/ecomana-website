@@ -1,26 +1,26 @@
 ---
-title: Frequently asked questions
-description: Answers to Common Questions About Our Mission and Work and Quick Guide to Our Programs and Processes
+title: Frequently Asked Questions
+description: Answers to common questions about our eco-friendly painting services, process, and guarantees.
 button:
   enable: true
-  label: "Contact Us"
+  label: "Request a Free Quote"
   link: "/contact"
 badge:
   enable: true
   label: "Questions Answered"
-  icon: "FaArtstation" ## Icons from https://react-icons.github.io/react-icons/icons/fa6/
+  icon: "FaPaintRoller" # Icons from https://react-icons.github.io/react-icons/icons/fa6/
   bg_color: "bg-secondary"
 list:
-  - question: "How secure is my financial data on your platform?"
-    answer: "We take the security and privacy of your financial data very seriously. Our platform employs industry-standard encryption protocols to safeguard your information during transmission and storage."
-  - question: "Do you offer phone support?"
-    answer: "Yes, we offer phone support for all customers. Contact us during business hours for assistance."
-  - question: "Can I use my own domain?"
-    answer: "Yes, you can use your own domain with all plans. Go to your account settings to set up your custom domain."
-  - question: "Do you offer a discount for annual plans?"
-    answer: "Yes, we offer a 20% discount on all annual plans. Contact us for more information."
-  - question: "Can I change my password?"
-    answer: "Yes, you can change your password at any time. Go to your account settings to update your password."
-  - question: "Do you offer a free plan?"
-    answer: "Yes, we offer a free plan with limited features. Upgrade to a paid plan for full access to all features."
+  - question: "Do you provide free estimates?"
+    answer: "Absolutely. We offer a complimentary on-site consultation and a detailed, no-obligation quote for every project."
+  - question: "What paints do you use? Are they eco-friendly?"
+    answer: "We prioritise eco-certified paints that provide vibrant colour and durability while keeping indoor air quality safe. We can also use your favorite paint."
+  - question: "How long will my project take?"
+    answer: "Most residential rooms are completed in one to two days. Larger or multi-room projects are scheduled to minimise disruption, and we’ll give you a precise timeline before work begins."
+  - question: "Do I need to move furniture or cover floors?"
+    answer: "No. Our crew handles all prep work—moving light furniture, covering floors and fixtures, and protecting your belongings throughout the project."
+  - question: "Is your work guaranteed?"
+    answer: "Yes. All workmanship is covered by a written warranty. If any issues arise within the warranty period, we’ll return promptly to make it right."
+  - question: "Are you insured and licensed?"
+    answer: "Yes. We carry full public liability insurance and all necessary trade licences, so you can have complete peace of mind."
 ---

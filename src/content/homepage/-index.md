@@ -37,40 +37,45 @@ gallery:
 # Fun Facts
 fun_facts:
   enable: true
-  title: "Since our founding, Kindora has made an extensive impact"
+  title: "You Can Count On Us"
   description: ""
   metrics:
-    - name: "Interior Projects"
-      description: "Designs we have finished in last 32 years."
+    - name: "Discount"
+      description: "Early Sign-Ups"
+      icon: "mdi:tag-percent"
       counter:
-        count: "8"
-        count_suffix: "K"
-        count_prefix: ""
-        count_duration: 3
-
-    - name: "Years of Works"
-      description: "Designs we have finished in last 32 years."
-      counter:
-        count: "31"
-        count_suffix: ""
-        count_prefix: ""
-        count_duration: 0.5
-
-    - name: "Satisfied Clients"
-      description: "Designs we have finished in last 32 years."
-      counter:
-        count: "12"
-        count_suffix: "K"
-        count_prefix: ""
-        count_duration: 3.5
-
-    - name: "Happy Rate"
-      description: "Designs we have finished in last 32 years."
-      counter:
-        count: "97"
+        count: "15"
         count_suffix: "%"
         count_prefix: ""
-        count_duration: 4
+        count_duration: 1.5
+
+    - name: "Eco-Friendly"
+      description: "Materials"
+      icon: "mdi:leaf"
+      counter:
+        count: "100"
+        count_suffix: "%"
+        count_prefix: ""
+        count_duration: 1.5
+
+    - name: "Years"
+      description: "Combined Experience"
+      icon: "mdi:account-group"
+      counter:
+        count: "25"
+        count_suffix: ""
+        count_prefix: ""
+        count_duration: 1.5
+
+    - name: "Mess-Free Guarantee"
+      description: "Dust or debris left behind"
+      icon: "mdi:broom"
+      counter:
+        count: "0"
+        count_suffix: ""
+        count_prefix: ""
+        count_duration: 1
+
 
 # Services Section
 services:
@@ -87,18 +92,18 @@ services:
 services_facts:
   enable: true
   title: "SERVICES"
-  subtitle: "Our Working Process"
+  subtitle: "Our Painting Process"
   metrics:
-    - name: "Initial Consultation"
-      description: "The process often begins with an initial consultation between the designer/architect. Get started from here."
-    - name: "Concept Development"
-      description: "The process often begins with an initial consultation between the designer/architect. Get started from here."
-    - name: "Design Development"
-      description: "The process often begins with an initial consultation between the designer/architect. Get started from here."
-    - name: "Permitting & Approvals"
-      description: "The process often begins with an initial consultation between the designer/architect. Get started from here."
-    - name: "Project Closeout"
-      description: "The process often begins with an initial consultation between the designer/architect. Get started from here."
+    - name: "Free Consultation & Quote"
+      description: "We visit your space, discuss goals, colours, and budget, then provide a detailed, no-obligation estimate."
+    - name: "Colour & Finish Selection"
+      description: "Our experts help you choose eco-friendly paints and finishes that suit your style, timeline, and budget."
+    - name: "Surface Preparation & Protection"
+      description: "Furniture is covered, surfaces are cleaned, repaired, sanded, and primed to ensure a flawless finish."
+    - name: "Professional Painting"
+      description: "Skilled painters apply premium coatings with precision and efficiency, minimising disruption."
+    - name: "Final Inspection & Clean-Up"
+      description: "We walk through every detail with you, handle any touch-ups, and leave the site spotless—guaranteed."
 
 # Projects Section
 projects:

@@ -11,6 +11,6 @@ button_solid:
 
 button_outline:
   enable: true
-  label: "Call us: +1 483 944 954"
-  link: "tel:+1 483 944 954"
+  label: "Call us: +64 021 435 743"
+  link: "tel:+64 021 435 743"
 ---
