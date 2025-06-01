@@ -18,7 +18,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "address": "39 Coopers RoadGate Pa, Tauranga 3112",
+    "address": "39 Coopers Road Gate Pa, Tauranga 3112",
     "phone": "021 435 743",
     "email": "thiago@ecomana.co.nz",
     "footer_title": "Ready To Build Your Dream Project?",
@@ -43,7 +43,7 @@
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
+    "meta_author": "Thiago Souto",
     "meta_image": "/images/og-image.png",
     "meta_description": "NextSpace - Architecture &amp; Interior Firm Astro Template"
   }
