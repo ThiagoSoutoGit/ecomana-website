@@ -1,10 +1,10 @@
 ---
 # Banner
 banner:
-  title: "Elevating Spaces Crafting Dreams"
-  content: "We specialize in transforming visions into reality. Explore our work of innovative architectural."
+  title: "An Eco painting company with real values"
+  content: "Our team consists of certified painters committed to delivering exceptional results you can trust."
   image: "/images/banner.png"
-  spinning_text: "• BEST INTERIOR FIRM SINCE 1992"
+  spinning_text: "•TAURANGA MOANA LOCALS"
   button:
     enable: true
     label: "Book an appointment"
@@ -13,9 +13,9 @@ banner:
 # Gallery
 gallery:
   enable: true
-  title: Architecture Interior.
+  title: Premium Quality and Commitment.
   subtitle: ABOUT us
-  description: We specialize in transforming visions into reality. Explore our portfolio of innovative architectural and interior design projects crafted with precision.
+  description: We specialize in transforming visions into reality. Whether it’s a single room or an entire property, we tailor every project to meet your style, budget, and expectations.
   images:
     - "/images/gallery/1.png"
     - "/images/gallery/2.png"

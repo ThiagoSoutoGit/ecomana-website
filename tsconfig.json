@@ -7,7 +7,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "jsx": "react",
     "isolatedModules": true,
     "incremental": true,
     "allowSyntheticDefaultImports": true,
@@ -19,6 +18,7 @@
       "@/*": ["./src/*"]
     }
   },
+  "plugins": [{ "name": "@astrojs/ts-plugin" }],
   "include": [".astro/types.d.ts", "**/*.ts", "**/*.tsx", "**/*.astro"],
   "exclude": ["node_modules", "dist"]
 }
