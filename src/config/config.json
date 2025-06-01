@@ -9,7 +9,7 @@
     "logo_footer": "/images/logo-footer.svg",
     "logo_width": "200",
     "logo_height": "40",
-    "logo_text": "NextSpace"
+    "logo_text": "EcoMana"
   },
 
   "settings": {
@@ -18,17 +18,17 @@
 
   "params": {
     "contact_form_action": "#",
-    "address": "123 Main Street, New York, NY 10001",
-    "phone": "123-456-7890",
-    "email": "info@nextspace.com",
+    "address": "39 Coopers RoadGate Pa, Tauranga 3112",
+    "phone": "021 435 743",
+    "email": "thiago@ecomana.co.nz",
     "footer_title": "Ready To Build Your Dream Project?",
     "footer_content": "Develops conceptual design ideas, refines them into detailed plans."
   },
 
   "navigation_button": {
     "enable": true,
-    "label": "Get This Template",
-    "link": "https://themefisher.com/products/nextspace-astro"
+    "label": "Contact us now",
+    "link": "/contact"
   },
 
   "footer_button": {
