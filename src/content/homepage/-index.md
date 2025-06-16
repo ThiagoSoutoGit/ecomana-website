@@ -1,7 +1,7 @@
 ---
 # Banner
 banner:
-  title: "An Eco painting company with real values"
+  title: "An Eco-friendly company with real values"
   content: "Our team consists of certified painters committed to delivering exceptional results you can trust."
   image: "/images/banner.png"
   spinning_text: "•TAURANGA MOANA LOCALS"

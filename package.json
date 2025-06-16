@@ -1,8 +1,8 @@
 {
-  "name": "nextspace-astro",
+  "name": "ecomana",
   "version": "1.0.0",
-  "description": "NextSpace - Architecture &amp; Interior Firm Astro Template",
-  "author": "Themefisher",
+  "description": "Ecomana - An Eco-friendly company with real values",
+  "author": "Thiago Souto",
   "license": "UNLICENSED",
   "packageManager": "yarn@1.22.22",
   "type": "module",
