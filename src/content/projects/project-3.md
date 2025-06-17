@@ -6,7 +6,7 @@ date: 2025-05-07T05:00:00Z
 image: "/images/projects/3.png"
 featured_in_homepage: true
 client_name: "Creative Structures"
-project_type: "Architecture Plan"
+project_type: "Interior painting"
 draft: false
 ---
 

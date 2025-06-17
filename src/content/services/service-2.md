@@ -1,17 +1,17 @@
 ---
-title: "Home Decoration"
-meta_title: ""
-description: "Efficient use of space is crucial in home interior design. Consider the layout of furniture."
+title: "Exterior Painting"
+meta_title: "Exterior Painting"
+description: "Boost curb appeal and protect your property with professional exterior painting using weather-resistant coatings and expert surface preparation."
 date: 2025-05-06T05:00:00Z
-image: "/images/services/service-2.png"
-categories: ["office"]
+image: "/images/services/service-3.png"
+categories: ["painting", "exterior"]
 featured_in_homepage: true
 features:
-  - name: "Ergonomic design solutions"
-    description: "Once construction is complete, the designer/architect conducts a final inspection of the project."
-  - name: "Custom and cabinetry design"
-    description: "Once construction is complete, the designer/architect conducts a final inspection of the project."
-  - name: "Workplace wellness design"
-    description: "Once construction is complete, the designer/architect conducts a final inspection of the project."
+  - name: "Weather-resistant coatings"
+    description: "We apply premium, UV-stable paints and sealers that withstand harsh sun, rain, and temperature swings."
+  - name: "Comprehensive surface prep"
+    description: "Power washing, scraping, sanding, and priming ensure optimal adhesion and a long-lasting finish."
+  - name: "Protective masking & cleanup"
+    description: "We carefully mask windows, landscaping, and fixtures, then leave your property spotless when the job is done."
 draft: false
 ---

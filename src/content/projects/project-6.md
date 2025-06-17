@@ -1,5 +1,5 @@
 ---
-title: "Titan Office Interior"
+title: "Office Interior"
 meta_title: ""
 description: "Efficient use of space is crucial in home Exterior Design. Consider the layout of furniture."
 date: 2025-05-07T05:00:00Z

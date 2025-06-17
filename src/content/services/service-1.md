@@ -1,17 +1,17 @@
 ---
-title: "Office Space Interior"
-meta_title: ""
-description: "Efficient use of space is crucial in home interior design. Consider the layout of furniture."
+title: "Interior Painting"
+meta_title: "Interior Painting Service"
+description: "Transform your space with professional interior painting that combines flawless finishes, durable materials, and colour expertise."
 date: 2025-05-06T05:00:00Z
-image: "/images/services/service-1.png"
-categories: ["office"]
-featured_in_homepage: false
+image: "/images/services/service-2.png"
+categories: ["painting", "interior"]
+featured_in_homepage: true
 features:
-  - name: "Ergonomic design solutions"
-    description: "Once construction is complete, the designer/architect conducts a final inspection of the project."
-  - name: "Custom and cabinetry design"
-    description: "Once construction is complete, the designer/architect conducts a final inspection of the project."
-  - name: "Workplace wellness design"
-    description: "Once construction is complete, the designer/architect conducts a final inspection of the project."
+  - name: "Premium low-VOC paints"
+    description: "We use high-quality, environmentally friendly paints that deliver rich colour while minimising odour and harmful emissions."
+  - name: "Meticulous surface preparation"
+    description: "Our team thoroughly cleans, sands, and primes every surface to ensure a smooth, long-lasting finish."
+  - name: "Colour consultation & design"
+    description: "Get expert advice on colour selection and accent walls to achieve the perfect aesthetic for your home or workspace."
 draft: false
 ---

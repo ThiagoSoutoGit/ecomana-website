@@ -6,7 +6,7 @@ description: "We encourage our team to fearlessly challenge conventions and pion
 image: "/images/contact.png"
 
 testimonials:
- - name: "Sarah Thompson"
+  - name: "Sarah Thompson"
     designation: "Homeowner"
     avatar: "/images/reviews/1.png"
     content: "The interior painting and mould removal by this company transformed our home completely. It's fresh, clean, and inviting now! Highly recommend."
@@ -35,5 +35,4 @@ testimonials:
     avatar: "/images/reviews/1.png"
     content: "From asbestos removal to interior painting, their attention to detail was impeccable. I'm delighted with the results and their exceptional service."
     featured: false
-
 ---
