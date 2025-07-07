@@ -7,7 +7,7 @@ image: "/images/projects/7.png"
 featured_in_homepage: true
 client_name: "Apex Inc."
 project_type: "Interior Design"
-draft: false
+draft: true
 ---
 
 #### Problems

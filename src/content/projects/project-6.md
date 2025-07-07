@@ -7,7 +7,7 @@ image: "/images/projects/6.png"
 featured_in_homepage: true
 client_name: "Titan Group"
 project_type: "Exterior Design"
-draft: false
+draft: true
 ---
 
 #### Problems

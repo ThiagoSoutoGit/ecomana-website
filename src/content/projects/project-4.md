@@ -7,7 +7,7 @@ image: "/images/projects/4.png"
 featured_in_homepage: true
 client_name: "Skyline Developers"
 project_type: "Interior Design"
-draft: false
+draft: true
 ---
 
 #### Problems
