@@ -1,7 +1,8 @@
 ---
 title: "Our Story"
 meta_title: "About"
-description: "At NextSpace, we are passionate about creating exceptional interior and designs that elevate lifestyles and enrich experiences."
+description: "🎉 Kia ora, Tauranga! 🎉
+Ecomana Painting is officially open for bookings – and we’re ready to bring a fresh splash of colour to your home or business. 🏡🏢."
 image: "/images/about/1.png"
 images_gallery:
   - "/images/about/1.png"
@@ -24,17 +25,14 @@ team_section:
   title: "Meet The Team"
   subtitle: "The Solutions"
   members:
-    - name: Edam Thompson
-      designation: Co-Founder
+    - name: Moiri Hika
+      designation: Co-Founder & Operations Manager
       avatar: "/images/team/a.png"
-    - name: Michael Rodriguez
-      designation: Co-Founder
+    - name: Thiago Souto
+      designation: Co-Founder & General Manager
       avatar: "/images/team/b.png"
-    - name: Sophia Martinez
-      designation: Interior Designer
+    - name: Holly Hika
+      designation: Social Media Manager
       avatar: "/images/team/c.png"
-    - name: William Chen
-      designation: Architectural Designer
-      avatar: "/images/team/d.png"
 draft: false
 ---
